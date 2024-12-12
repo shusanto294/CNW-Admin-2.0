@@ -1,7 +1,7 @@
 <?php
 
-// Hook into 'admin_init' to ensure settings are available
-add_action('admin_init', 'cnw_initialize_enable_notification_features');
+// Hook into 'init' to ensure settings are available
+add_action('init', 'cnw_initialize_enable_notification_features');
 
 function cnw_initialize_enable_notification_features() {
 

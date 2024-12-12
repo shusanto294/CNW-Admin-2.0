@@ -1,6 +1,6 @@
 <?php
 
-add_action('admin_init', 'cnw_initialize_enable_performance_features');
+add_action('init', 'cnw_initialize_enable_performance_features');
 
 function cnw_initialize_enable_performance_features() {
 	// Retrieve the settings from the options table

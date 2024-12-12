@@ -1,6 +1,7 @@
 <?php
 
-add_action('admin_init', 'cnw_initialize_security_settings');
+add_action('init', 'cnw_initialize_security_settings');
+
 
 // Define the main function to initialize security settings
 function cnw_initialize_security_settings() {
@@ -24,7 +25,6 @@ function cnw_initialize_security_settings() {
 			add_action('admin_init', 'disable_comments_admin_menu_redirect');
 			add_action('admin_init', 'disable_comments_dashboard');
 			add_action('init', 'disable_comments_admin_bar');
-
         }
 
 		if (isset($security_settings_value['cnw-xmlrpc'])) {
@@ -35,7 +35,7 @@ function cnw_initialize_security_settings() {
         }
 
 		if (isset($security_settings_value['cnw-tpeditors'])) {
-			add_action( 'init', 'disable_theme_plugin_editors' );
+			add_action( 'init', 'disable_theme_plugin_editors', 20 );
         }
 
 		if (isset($security_settings_value['cnw-blacklist'])) {

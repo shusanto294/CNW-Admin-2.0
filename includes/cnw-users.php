@@ -1,7 +1,7 @@
 <?php
 
-// Hook into 'admin_init' to ensure settings are available
-add_action('admin_init', 'cnw_initialize_enable_user_features');
+// Hook into 'init' to ensure settings are available
+add_action('init', 'cnw_initialize_enable_user_features');
 
 
 function cnw_initialize_enable_user_features() {
@@ -28,10 +28,11 @@ function cnw_initialize_enable_user_features() {
 
     // Add Member Role
 	if (isset($enable_user_features['cnw-member-role'])) {
-        add_action('init', 'create_member_role');
+		// echo "Add member role conditon";
+        add_action('init', 'create_member_role', 20);
     } else {
-		add_action('init', 'remove_member_role');
-		}
+		add_action('init', 'remove_member_role', 20);
+	}
 
     // Hide Uneccessary User Roles
 	if (isset($enable_user_features['cnw-hide-roles'])) {

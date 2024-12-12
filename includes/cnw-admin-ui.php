@@ -1,7 +1,7 @@
 <?php
 
-// Hook into 'admin_init' to ensure settings are available
-add_action('admin_init', 'cnw_initialize_admin_ui_settings');
+// Hook into 'init' to ensure settings are available
+add_action('init', 'cnw_initialize_admin_ui_settings');
 
 function cnw_initialize_admin_ui_settings() {
     // Retrieve the settings from the options table
@@ -11,7 +11,10 @@ function cnw_initialize_admin_ui_settings() {
     $admin_ui_settings_value = isset($options['admin_ui_settings']) ? $options['admin_ui_settings'] : array();
 
     // Custom logo url
-    $customLogoUrl = $options['cnw_custom_logo'];
+    if (isset($options['cnw_custom_logo'])) {
+        $customLogoUrl = $options['cnw_custom_logo'];
+    }
+
 
     if (is_array($admin_ui_settings_value)) {
         if (isset($admin_ui_settings_value['cnw-dashboard'])) {
