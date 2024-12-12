@@ -17,7 +17,7 @@ function cnw_add_admin_menu() {
         'manage_options',
         'cnw-settings',
         'cnw_options_page',
-        'dashicons-admin-generic'
+        'https://gocloudnine.b-cdn.net/images/Menu-Icon.svg'
     );
 }
 
