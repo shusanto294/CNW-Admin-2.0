@@ -136,8 +136,11 @@ function cnw_options_page() {
         }
 
         @media(min-width: 1000px){
-            .cnw-tab-contents {
+            .cnw-tab-contents{
                 padding-right: 20px;
+            }
+            .client-portal-section{
+                margin-right: 20px;
             }
         }
 
@@ -195,6 +198,24 @@ function cnw_options_page() {
             background-color: #fff;
             box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
         }
+
+        /* Client portal section */
+        .client-portal-section{
+            background: #fff;
+            border-radius: 20px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            font-family: "Plus Jarka Sans";
+            padding: 50px 20px;
+            text-align: center;
+
+        }
+        .client-portal-section h2{
+            font-size: 25px;
+            margin: 0px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
     </style>
 
     <form action='options.php' method='post'>
@@ -206,6 +227,23 @@ function cnw_options_page() {
         submit_button();
         ?>
     </form>
+
+    <?php
+        $current_user = wp_get_current_user();
+        $email = $current_user->user_email;
+    ?>
+
+    <div class="client-portal-section">
+    <svg style="width: 30px; fill: #f04449;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z"/></svg>
+        <h2>Client Portal</h2>
+         <form action="https://clientportal.cloudnineweb.co/wp-json/custom/v1/magic-login" method="POST" target="_blank">
+            <input type="hidden" name="email" value="<?php echo $email; ?>">
+            <input type="hidden" name="token" value="5FsMt3HWiWWJcDnSNp6Q">
+            <button class="button button-primary">Client portal login</button>
+         </form>
+    </div>
+
+
     <?php
 }
 

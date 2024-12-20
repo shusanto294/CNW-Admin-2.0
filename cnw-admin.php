@@ -3,7 +3,7 @@
 /*
 Plugin Name: CNW Admin
 Description: Adds custom styling, security, performance and functionality to Cloud Nine Web managed sites
-Version: 2.0.0
+Version: 2.0.1
 Author: <a href="https://cloudnineweb.co" target="_blank">Cloud Nine Web</a>
 */
 
@@ -165,7 +165,6 @@ class CNW_Main {
 		include(plugin_dir_path(__FILE__) . 'includes/cnw-users.php');
 		include(plugin_dir_path(__FILE__) . 'includes/cnw-forms.php');
 		include(plugin_dir_path(__FILE__) . 'includes/cnw-notifications.php');
-
     }
 
     /**
